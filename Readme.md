@@ -6,7 +6,7 @@ Add the following to your `Gemfile`
 
 ```yaml
 group :jekyll_plugins do
-  gem 'jekyll-cmark', :path => '~/GitHub/Jekyll-CMark/'
+  gem 'jekyll-cmark', :github => 'pathawks/Jekyll-CMark'
 end
 ```
 
