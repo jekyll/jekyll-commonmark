@@ -10,7 +10,7 @@ module Jekyll
 
       def convert(content)
         require 'commonmarker'
-        CommonMarker.render_doc(content, [:smart, :normalize]).to_html.strip
+        CommonMarker.render_doc(content, [:smart, :normalize]).to_html
       end
     end
   end
