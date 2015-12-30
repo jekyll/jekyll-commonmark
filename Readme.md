@@ -1,4 +1,4 @@
-# jekyll-cmark
+# jekyll-commonmark
 
 *CommonMark Markdown converter for Jekyll*
 
@@ -18,7 +18,7 @@ group :jekyll_plugins do
 end
 ```
 
-and modify your `_config.yml` to use **CMark** as your Markdown converter
+and modify your `_config.yml` to use **CommonMark** as your Markdown converter
 
 ```yaml
 markdown: CommonMark
