@@ -1,7 +1,7 @@
 # coding: utf-8
 
 Gem::Specification.new do |spec|
-  spec.name          = "jekyll-cmark"
+  spec.name          = "jekyll-commonmark"
   spec.summary       = "CommonMark generator for Jekyll"
   spec.version       = "0.0.1"
   spec.authors       = ["Pat Hawks"]
