@@ -2,9 +2,9 @@
 
 *CommonMark Markdown converter for Jekyll*
 
-[![Gem Version](https://img.shields.io/gem/v/jekyll-cmark.svg)](https://rubygems.org/gems/jekyll-cmark)
-[![Build Status](https://img.shields.io/travis/pathawks/Jekyll-CMark/master.svg)](https://travis-ci.org/pathawks/Jekyll-CMark)
-[![Dependency Status](https://img.shields.io/gemnasium/pathawks/Jekyll-CMark.svg)](https://gemnasium.com/pathawks/Jekyll-CMark)
+[![Gem Version](https://img.shields.io/gem/v/jekyll-commonmark.svg)](https://rubygems.org/gems/jekyll-commonmark)
+[![Build Status](https://img.shields.io/travis/pathawks/jekyll-commonmark/master.svg)](https://travis-ci.org/pathawks/jekyll-commonmark)
+[![Dependency Status](https://img.shields.io/gemnasium/pathawks/jekyll-commonmark.svg)](https://gemnasium.com/pathawks/jekyll-commonmark)
 
 Jekyll Markdown converter that uses [libcmark](https://github.com/jgm/CommonMark), the reference parser for CommonMark.
 
@@ -14,12 +14,12 @@ Add the following to your `Gemfile`
 
 ```yaml
 group :jekyll_plugins do
-  gem 'jekyll-cmark', :github => 'pathawks/Jekyll-CMark'
+  gem 'jekyll-commonmark', :github => 'pathawks/jekyll-commonmark'
 end
 ```
 
 and modify your `_config.yml` to use **CMark** as your Markdown converter
 
 ```yaml
-markdown: CMark
+markdown: CommonMark
 ```
