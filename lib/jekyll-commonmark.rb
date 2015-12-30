@@ -7,18 +7,17 @@ module Jekyll
       def initialize(config)
         Jekyll::External.require_with_graceful_fail "commonmarker"
         begin
-          @options = config['commonmark']['options'].collect { |e|
-            if CommonMarker::Config::Parse.keys.include? e.to_sym
-              e.to_sym
-            else
-              Jekyll.logger.warn "CommonMark:", "#{e} is not a valid option"
-              Jekyll.logger.info "Valid options:", CommonMarker::Config::Parse.keys.join(", ")
-              nil
-            end
-          }
-          @options.compact!
+          @options = config['commonmark']['options'].collect { |e| e.to_sym }
         rescue NoMethodError
           @options = [:default]
+        else
+          @options.reject! do |e|
+            unless CommonMarker::Config::Parse.keys.include? e.to_sym
+              Jekyll.logger.warn "CommonMark:", "#{e} is not a valid option"
+              Jekyll.logger.info "Valid options:", CommonMarker::Config::Parse.keys.join(", ")
+              true
+            end
+          end
         end
       end
 
