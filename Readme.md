@@ -12,7 +12,7 @@ Jekyll Markdown converter that uses [libcmark](https://github.com/jgm/CommonMark
 
 Add the following to your `Gemfile`
 
-```yaml
+```ruby
 group :jekyll_plugins do
   gem 'jekyll-commonmark', :github => 'pathawks/jekyll-commonmark'
 end
