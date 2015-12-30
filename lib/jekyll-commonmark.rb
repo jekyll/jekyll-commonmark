@@ -6,7 +6,6 @@ module Jekyll
     class Markdown::CommonMark
       def initialize(config)
         Jekyll::External.require_with_graceful_fail "commonmarker"
-
         begin
           @options = config['commonmark']['options'].collect { |e|
             if CommonMarker::Config::Parse.keys.include? e.to_sym
@@ -19,14 +18,6 @@ module Jekyll
           }
           @options.compact!
         rescue NoMethodError
-          @options = [:default]
-        end
-
-        begin
-          CommonMarker.render_doc('', @options)
-        rescue TypeError => e
-          require 'json'
-          abort e.to_json
           @options = [:default]
         end
       end
