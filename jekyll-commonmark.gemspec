@@ -6,7 +6,7 @@ Gem::Specification.new do |spec|
   spec.version       = "0.0.1"
   spec.authors       = ["Pat Hawks"]
   spec.email         = "pat@pathawks.com"
-  spec.homepage      = "https://github.com/pathawks/Jekyll-CMark"
+  spec.homepage      = "https://github.com/pathawks/jekyll-commonmark"
   spec.licenses      = ["MIT"]
 
   spec.files         = `git ls-files -z`.split("\x0")
