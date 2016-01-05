@@ -14,7 +14,7 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
-  spec.add_runtime_dependency "commonmarker", "~> 0.5.1"
+  spec.add_runtime_dependency "commonmarker", "~> 0.6.0"
   spec.add_runtime_dependency "jekyll", [">= 3.0", "< 4.0"]
 
   spec.add_development_dependency "rspec", "~> 3.0"
