@@ -3,7 +3,7 @@
 Gem::Specification.new do |spec|
   spec.name          = "jekyll-commonmark"
   spec.summary       = "CommonMark generator for Jekyll"
-  spec.version       = "0.0.1"
+  spec.version       = "0.1.0"
   spec.authors       = ["Pat Hawks"]
   spec.email         = "pat@pathawks.com"
   spec.homepage      = "https://github.com/pathawks/jekyll-commonmark"
@@ -14,7 +14,7 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
-  spec.add_runtime_dependency "commonmarker", "~> 0.6.0"
+  spec.add_runtime_dependency "commonmarker", "~> 0.9.1"
   spec.add_runtime_dependency "jekyll", [">= 3.0", "< 4.0"]
 
   spec.add_development_dependency "rspec", "~> 3.0"
