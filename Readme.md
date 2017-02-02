@@ -14,7 +14,7 @@ Add the following to your `Gemfile`
 
 ```ruby
 group :jekyll_plugins do
-  gem 'jekyll-commonmark', :github => 'pathawks/jekyll-commonmark'
+  gem 'jekyll-commonmark'
 end
 ```
 
