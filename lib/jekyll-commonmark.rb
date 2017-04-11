@@ -7,9 +7,9 @@ module Jekyll
       def initialize(config)
         Jekyll::External.require_with_graceful_fail "commonmarker"
         begin
-          @options = config['commonmark']['options'].collect { |e| e.to_sym }
+          @options = config['commonmark']['options'].collect { |e| e.upcase.to_sym }
         rescue NoMethodError
-          @options = [:default]
+          @options = [:DEFAULT]
         else
           @options.reject! do |e|
             unless CommonMarker::Config::Parse.keys.include? e.to_sym
