@@ -9,12 +9,13 @@ module Jekyll
         begin
           @options = config['commonmark']['options'].collect { |e| e.upcase.to_sym }
         rescue NoMethodError
-          @options = [:DEFAULT]
+          @options = []
         else
+          valid_opts = Set.new(CommonMarker::Config::Parse.keys + CommonMarker::Config::Render.keys)
           @options.reject! do |e|
-            unless CommonMarker::Config::Parse.keys.include? e
+            unless valid_opts.include? e
               Jekyll.logger.warn "CommonMark:", "#{e} is not a valid option"
-              Jekyll.logger.info "Valid options:", CommonMarker::Config::Parse.keys.join(", ")
+              Jekyll.logger.info "Valid options:", valid_opts.to_a.join(", ")
               true
             end
           end
@@ -35,7 +36,11 @@ module Jekyll
       end
 
       def convert(content)
-        CommonMarker.render_doc(content, @options, @extensions).to_html
+        parse_options = (Set.new(@options) & CommonMarker::Config::Parse.keys).to_a
+        render_options = (Set.new(@options) & CommonMarker::Config::Render.keys).to_a
+        parse_options = :DEFAULT if parse_options.empty?
+        render_options = :DEFAULT if render_options.empty?
+        CommonMarker.render_doc(content, parse_options, @extensions).to_html(render_options, @extensions)
       end
     end
   end
