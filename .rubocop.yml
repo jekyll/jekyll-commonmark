@@ -1,0 +1,18 @@
+inherit_gem:
+  jekyll: .rubocop.yml
+
+Metrics/AbcSize:
+  Exclude:
+    - lib/jekyll-commonmark.rb
+
+Metrics/MethodLength:
+  Exclude:
+    - lib/jekyll-commonmark.rb
+
+Metrics/LineLength:
+  Exclude:
+    - lib/jekyll-commonmark.rb
+
+Lint/Debugger:
+  Exclude:
+    - script/console
