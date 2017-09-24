@@ -24,7 +24,7 @@ def config(overrides = {})
   Jekyll.configuration({
     "source"      => source_dir,
     "destination" => dest_dir,
-    "url"         => "http://example.org"
+    "url"         => "http://example.org",
   }).merge(overrides)
 end
 
