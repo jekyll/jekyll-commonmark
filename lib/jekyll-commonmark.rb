@@ -1,5 +1,4 @@
-# Frozen-string-literal: true
-# Encoding: utf-8
+# frozen-string-literal: true
 
 module Jekyll
   module Converters
@@ -7,30 +6,28 @@ module Jekyll
       def initialize(config)
         Jekyll::External.require_with_graceful_fail "commonmarker"
         begin
-          @options = config['commonmark']['options'].collect { |e| e.upcase.to_sym }
+          @options = config["commonmark"]["options"].collect { |e| e.upcase.to_sym }
         rescue NoMethodError
           @options = []
         else
           valid_opts = Set.new(CommonMarker::Config::Parse.keys + CommonMarker::Config::Render.keys)
           @options.reject! do |e|
-            unless valid_opts.include? e
-              Jekyll.logger.warn "CommonMark:", "#{e} is not a valid option"
-              Jekyll.logger.info "Valid options:", valid_opts.to_a.join(", ")
-              true
-            end
+            next if valid_opts.include? e
+            Jekyll.logger.warn "CommonMark:", "#{e} is not a valid option"
+            Jekyll.logger.info "Valid options:", valid_opts.to_a.join(", ")
+            true
           end
         end
         begin
-          @extensions = config['commonmark']['extensions'].collect { |e| e.to_sym }
+          @extensions = config["commonmark"]["extensions"].collect(&:to_sym)
         rescue NoMethodError
           @extensions = []
         else
           @extensions.reject! do |e|
-            unless CommonMarker.extensions.include? e.to_s
-              Jekyll.logger.warn "CommonMark:", "#{e} is not a valid extension"
-              Jekyll.logger.info "Valid extensions:", CommonMarker.extensions.join(", ")
-              true
-            end
+            next if CommonMarker.extensions.include? e.to_s
+            Jekyll.logger.warn "CommonMark:", "#{e} is not a valid extension"
+            Jekyll.logger.info "Valid extensions:", CommonMarker.extensions.join(", ")
+            true
           end
         end
       end

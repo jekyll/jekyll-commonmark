@@ -1,0 +1,22 @@
+inherit_gem:
+  jekyll: .rubocop.yml
+
+AllCops:
+  Exclude:
+    - vendor/**/*
+
+Metrics/AbcSize:
+  Exclude:
+    - lib/jekyll-commonmark.rb
+
+Metrics/MethodLength:
+  Exclude:
+    - lib/jekyll-commonmark.rb
+
+Metrics/LineLength:
+  Exclude:
+    - lib/jekyll-commonmark.rb
+
+Lint/Debugger:
+  Exclude:
+    - script/console
