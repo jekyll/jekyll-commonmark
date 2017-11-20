@@ -2,4 +2,4 @@
 
 set -e
 
-bundle exec rubocop -D -E
+bundle exec rubocop -D -E $@
