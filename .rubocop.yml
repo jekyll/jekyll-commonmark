@@ -20,3 +20,7 @@ Metrics/LineLength:
 Lint/Debugger:
   Exclude:
     - script/console
+
+Metrics/BlockLength:
+  Exclude:
+    - spec/**/*
