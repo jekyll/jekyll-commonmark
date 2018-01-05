@@ -49,7 +49,7 @@ describe(Jekyll::Converters::Markdown::CommonMark) do
   end
 
   context "with SmartyPants enabled" do
-    let(:options) { [ "SMART" ] }
+    let(:options) { ["SMART"] }
 
     it "makes quotes curly" do
       actual = commonmark.convert('"SmartyPants"')
@@ -59,7 +59,7 @@ describe(Jekyll::Converters::Markdown::CommonMark) do
   end
 
   context "with hardbreaks enabled" do
-    let(:options) { [ "HARDBREAKS" ] }
+    let(:options) { ["HARDBREAKS"] }
 
     it "treats newlines as hardbreaks" do
       actual = commonmark.convert("a\nb")
@@ -69,7 +69,7 @@ describe(Jekyll::Converters::Markdown::CommonMark) do
   end
 
   context "with nobreaks enabled" do
-    let(:options) { [ "NOBREAKS" ] }
+    let(:options) { ["NOBREAKS"] }
 
     it "treats newlines as a single space" do
       actual = commonmark.convert("a\nb")
@@ -79,7 +79,7 @@ describe(Jekyll::Converters::Markdown::CommonMark) do
   end
 
   context "with autolink enabled" do
-    let(:extensions) { [ "autolink" ] }
+    let(:extensions) { ["autolink"] }
 
     it "links urls" do
       actual = commonmark.convert("https://example.com")
