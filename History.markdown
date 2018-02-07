@@ -6,6 +6,7 @@
   * Allow options passed to Rubocop (#15)
   * Add tests (#16)
   * Test against Ruby 2.5 (#18)
+  * Version with class (#19)
 
 ### Minor Enhancements
 
