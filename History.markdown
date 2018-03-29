@@ -1,4 +1,9 @@
-## HEAD
+## 1.2.0 / 2018-03-29
+
+### Minor Enhancements
+
+  * Allow render options (#4)
+  * Only set options once (#17)
 
 ### Development Fixes
 
@@ -7,7 +12,3 @@
   * Add tests (#16)
   * Test against Ruby 2.5 (#18)
   * Version with class (#19)
-
-### Minor Enhancements
-
-  * Only set options once (#17)
