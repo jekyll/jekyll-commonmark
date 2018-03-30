@@ -1,7 +1,3 @@
-## HEAD
-
-  * Release v1.2.0 (#21)
-
 ## 1.2.0 / 2018-03-29
 
 ### Minor Enhancements
