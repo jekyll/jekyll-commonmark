@@ -21,11 +21,11 @@ def dest_dir(*files)
 end
 
 def config(overrides = {})
-  Jekyll.configuration({
+  Jekyll.configuration(
     "source"      => source_dir,
     "destination" => dest_dir,
-    "url"         => "http://example.org",
-  }).merge(overrides)
+    "url"         => "http://example.org"
+  ).merge(overrides)
 end
 
 def site(configuration = config)

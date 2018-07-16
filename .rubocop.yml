@@ -1,12 +1,13 @@
-inherit_gem:
-  jekyll: .rubocop.yml
+require: rubocop-jekyll
 
-AllCops:
-  TargetRubyVersion: 2.3
-  Exclude:
-    - vendor/**/*
+inherit_gem:
+  rubocop-jekyll: .rubocop.yml
 
 Metrics/AbcSize:
+  Exclude:
+    - lib/jekyll-commonmark.rb
+
+Metrics/CyclomaticComplexity:
   Exclude:
     - lib/jekyll-commonmark.rb
 
