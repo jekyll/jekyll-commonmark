@@ -8,11 +8,10 @@ install:
 
 environment:
   matrix:
+    - RUBY_FOLDER_VER: "25"
+    - RUBY_FOLDER_VER: "25-x64"
     - RUBY_FOLDER_VER: "24"
-    - RUBY_FOLDER_VER: "24-x64"
     - RUBY_FOLDER_VER: "23"
-    - RUBY_FOLDER_VER: "22"
-    - RUBY_FOLDER_VER: "21"
 
 test_script:
   - ruby --version
