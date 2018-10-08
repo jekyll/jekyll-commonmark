@@ -3,6 +3,12 @@ require: rubocop-jekyll
 inherit_gem:
   rubocop-jekyll: .rubocop.yml
 
+AllCops:
+  TargetRubyVersion: 2.3
+  Exclude:
+    - script/**/*
+    - vendor/**/*
+
 Metrics/AbcSize:
   Exclude:
     - lib/jekyll-commonmark.rb

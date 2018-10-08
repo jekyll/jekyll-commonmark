@@ -14,6 +14,7 @@ module Jekyll
             valid_opts = Set.new(CommonMarker::Config::Parse.keys + CommonMarker::Config::Render.keys)
             options.reject! do |e|
               next if valid_opts.include? e
+
               Jekyll.logger.warn "CommonMark:", "#{e} is not a valid option"
               Jekyll.logger.info "Valid options:", valid_opts.to_a.join(", ")
               true
@@ -26,6 +27,7 @@ module Jekyll
           else
             @extensions.reject! do |e|
               next if CommonMarker.extensions.include? e.to_s
+
               Jekyll.logger.warn "CommonMark:", "#{e} is not a valid extension"
               Jekyll.logger.info "Valid extensions:", CommonMarker.extensions.join(", ")
               true
