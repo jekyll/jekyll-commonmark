@@ -1,3 +1,5 @@
+inherit_from: .rubocop_todo.yml
+
 require: rubocop-jekyll
 
 inherit_gem:
@@ -8,27 +10,3 @@ AllCops:
   Exclude:
     - script/**/*
     - vendor/**/*
-
-Metrics/AbcSize:
-  Exclude:
-    - lib/jekyll-commonmark.rb
-
-Metrics/CyclomaticComplexity:
-  Exclude:
-    - lib/jekyll-commonmark.rb
-
-Metrics/MethodLength:
-  Exclude:
-    - lib/jekyll-commonmark.rb
-
-Metrics/LineLength:
-  Exclude:
-    - lib/jekyll-commonmark.rb
-
-Lint/Debugger:
-  Exclude:
-    - script/console
-
-Metrics/BlockLength:
-  Exclude:
-    - spec/**/*
