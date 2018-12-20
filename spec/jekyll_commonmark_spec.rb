@@ -87,4 +87,28 @@ describe(Jekyll::Converters::Markdown::CommonMark) do
       expect(actual).to match(expected)
     end
   end
+
+  context "with invalid config" do
+    let(:config) { "DEFAULT" }
+
+    it "renders correct markup" do
+      actual = commonmark.convert("# Heading\n\nhttps://example.com")
+      expected = "<h1>Heading</h1>\n<p>https://example.com</p>"
+      expect(actual).to match(expected)
+    end
+  end
+
+  context "with invalid options and extensions" do
+    let(:options)    { ["SOFTBREAKS"] }
+    let(:extensions) { ["SOFTBREAKS"] }
+
+    it "outputs warning messages but renders correct markup" do
+      actual, output = capture_stdout { commonmark.convert("# Heading\n\nhttps://example.com") }
+      expected = "<h1>Heading</h1>\n<p>https://example.com</p>"
+
+      expect(output).to match("CommonMark: SOFTBREAKS is not a valid option")
+      expect(output).to match("CommonMark: SOFTBREAKS is not a valid extension")
+      expect(actual).to match(expected)
+    end
+  end
 end
