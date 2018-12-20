@@ -7,31 +7,19 @@ module Jekyll
         def initialize(config)
           Jekyll::External.require_with_graceful_fail "commonmarker"
           begin
-            options = config["commonmark"]["options"].collect { |e| e.upcase.to_sym }
+            options    = config["commonmark"]["options"].collect { |e| e.upcase.to_sym }
+            valid_opts = Set.new(CommonMarker::Config::Parse.keys + CommonMarker::Config::Render.keys).to_a
+            options    = validate(options, valid_opts, "option")
           rescue NoMethodError
             options = []
-          else
-            valid_opts = Set.new(CommonMarker::Config::Parse.keys + CommonMarker::Config::Render.keys)
-            options.reject! do |e|
-              next if valid_opts.include? e
-
-              Jekyll.logger.warn "CommonMark:", "#{e} is not a valid option"
-              Jekyll.logger.info "Valid options:", valid_opts.to_a.join(", ")
-              true
-            end
           end
+
           begin
-            @extensions = config["commonmark"]["extensions"].collect(&:to_sym)
+            @extensions      = config["commonmark"]["extensions"].collect(&:to_sym)
+            valid_extensions = CommonMarker.extensions.collect(&:to_sym)
+            @extensions      = validate(@extensions, valid_extensions, "extension")
           rescue NoMethodError
             @extensions = []
-          else
-            @extensions.reject! do |e|
-              next if CommonMarker.extensions.include? e.to_s
-
-              Jekyll.logger.warn "CommonMark:", "#{e} is not a valid extension"
-              Jekyll.logger.info "Valid extensions:", CommonMarker.extensions.join(", ")
-              true
-            end
           end
 
           options_set = Set.new(options).freeze
@@ -45,6 +33,18 @@ module Jekyll
         def convert(content)
           CommonMarker.render_doc(content, @parse_options, @extensions)
             .to_html(@render_options, @extensions)
+        end
+
+        private
+
+        def validate(list, bucket, type)
+          list.reject do |item|
+            next if bucket.include?(item)
+
+            Jekyll.logger.warn "CommonMark:", "#{item} is not a valid #{type}"
+            Jekyll.logger.info "Valid #{type}s:", bucket.join(", ")
+            true
+          end
         end
       end
     end
