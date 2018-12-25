@@ -1,5 +1,7 @@
 # frozen-string-literal: true
 
+require_relative "jekyll-commonmark/html_renderer"
+
 module Jekyll
   module Converters
     class Markdown
@@ -43,8 +45,12 @@ module Jekyll
         end
 
         def convert(content)
-          CommonMarker.render_doc(content, @parse_options, @extensions)
-            .to_html(@render_options, @extensions)
+          HtmlRenderer.new(
+            :options    => @render_options,
+            :extensions => @extensions
+          ).render(
+            CommonMarker.render_doc(content, @parse_options, @extensions)
+          )
         end
       end
     end

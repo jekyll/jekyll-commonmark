@@ -46,6 +46,37 @@ describe(Jekyll::Converters::Markdown::CommonMark) do
       expected = "https://example.com"
       expect(actual).to match(expected)
     end
+
+    it "highlights fenced code-block" do
+      content = <<~CODE
+        ```yaml
+        # Sample configuration
+        title: CommonMark Test
+        verbose: true
+        atm_pin: 1234
+        ```
+      CODE
+
+      output = <<~HTML
+        <div class="language-yaml highlighter-rouge">
+          <div class="highlight">
+            <pre class="highlight">
+              <code data-lang="yaml">
+                <span class="c1"># Sample configuration</span>
+                <span class="na">title</span><span class="pi">:</span>
+                <span class="s">CommonMark Test</span>
+                <span class="na">verbose</span><span class="pi">:</span>
+                <span class="no">true</span>
+                <span class="na">atm_pin</span><span class="pi">:</span>
+                <span class="s">1234</span>
+              </code>
+            </pre>
+          </div>
+        </div>
+      HTML
+
+      expect(commonmark.convert(content).gsub(%r!\s+!, "")).to match(output.gsub(%r!\s+!, ""))
+    end
   end
 
   context "with SmartyPants enabled" do
