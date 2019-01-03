@@ -2,8 +2,8 @@ language: ruby
 cache: bundler
 sudo: false
 rvm:
-  - 2.5
-  - 2.3
+  - 2.6
+  - 2.4
 git:
   depth: 1
 
