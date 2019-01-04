@@ -3,6 +3,7 @@
 ### Development Fixes
 
   * chore(deps): rubocop-jekyll 0.3.0 (#25)
+  * Target Ruby 2.4 (#30)
 
 ## 1.2.0 / 2018-03-29
 
