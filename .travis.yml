@@ -5,7 +5,7 @@ rvm:
   - 2.6
   - 2.4
 git:
-  depth: 1
+  depth: 3
 
 # we need a more recent cmake than travis/linux provides (at least 2.8.9):
 addons:
