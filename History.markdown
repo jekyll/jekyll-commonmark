@@ -1,3 +1,9 @@
+## HEAD
+
+### Minor Enhancements
+
+  * Highlight fenced code-block contents with Rouge (#29)
+
 ## 1.3.1 / 2019-03-25
 
 ### Bug Fixes
