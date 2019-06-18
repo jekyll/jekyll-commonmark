@@ -4,6 +4,10 @@
 
   * Highlight fenced code-block contents with Rouge (#29)
 
+### Development Fixes
+
+  * DRY begin-rescue-end block with a private helper (#28)
+
 ## 1.3.1 / 2019-03-25
 
 ### Bug Fixes
