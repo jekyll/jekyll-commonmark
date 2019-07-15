@@ -68,7 +68,7 @@ describe(Jekyll::Converters::Markdown::CommonMark) do
                 <span class="na">verbose</span><span class="pi">:</span>
                 <span class="no">true</span>
                 <span class="na">atm_pin</span><span class="pi">:</span>
-                <span class="s">1234</span>
+                <span class="m">1234</span>
               </code>
             </pre>
           </div>
