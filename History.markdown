@@ -8,6 +8,7 @@
 
   * DRY begin-rescue-end block with a private helper (#28)
   * Fix failing CI builds (#33)
+  * Remove gemspec dependency on Jekyll (#34)
 
 ## 1.3.1 / 2019-03-25
 
