@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
-$LOAD_PATH.unshift File.expand_path("lib", __dir__)
-require "jekyll-commonmark/version"
+require_relative "lib/jekyll-commonmark/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "jekyll-commonmark"
