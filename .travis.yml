@@ -2,8 +2,7 @@ language: ruby
 cache: bundler
 rvm:
   - &latest_ruby 2.6
-  - 2.4
-  - 2.3
+  - 2.5
 git:
   depth: 3
 
@@ -30,6 +29,6 @@ env:
 matrix:
   include:
     - rvm: *latest_ruby
-      env: JEKYLL_VERSION="~> 3.7.4"
+      env: JEKYLL_VERSION="~> 3.8.5"
     - rvm: *latest_ruby
-      env: JEKYLL_VERSION=">= 4.0.0.pre.alpha1"
+      env: JEKYLL_VERSION=">= 4.0.0"
