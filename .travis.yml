@@ -1,7 +1,7 @@
 language: ruby
 cache: bundler
 rvm:
-  - &latest_ruby 2.6
+  - &latest_ruby 2.7
   - 2.5
 git:
   depth: 3
