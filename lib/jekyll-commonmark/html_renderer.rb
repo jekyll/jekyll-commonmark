@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-Jekyll::External.require_with_graceful_fail "commonmarker"
-
 module Jekyll
   module Converters
     class Markdown

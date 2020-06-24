@@ -1,13 +1,12 @@
 # frozen-string-literal: true
 
+Jekyll::External.require_with_graceful_fail "commonmarker"
 require_relative "jekyll-commonmark/html_renderer"
 
 module Jekyll
   module Converters
     class Markdown
       class CommonMark
-        Jekyll::External.require_with_graceful_fail "commonmarker"
-
         DEFAULT_CONFIG = { "extensions" => [], "options" => [] }.freeze
         PARSE_KEYS = CommonMarker::Config::Parse.keys
         RENDER_KEYS = CommonMarker::Config::Render.keys
@@ -49,7 +48,7 @@ module Jekyll
         end
 
         def prepare(key, proc, valid_keys)
-          collection = config[key].map { |item| proc.call(item) }
+          collection = config[key].map { |item| proc[item] }
           validate(collection, valid_keys, key[0..-2])
         end
 
