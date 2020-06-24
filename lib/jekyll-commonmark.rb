@@ -6,14 +6,18 @@ module Jekyll
   module Converters
     class Markdown
       class CommonMark
+        Jekyll::External.require_with_graceful_fail "commonmarker"
+
         DEFAULT_CONFIG = { "extensions" => [], "options" => [] }.freeze
         PARSE_KEYS = CommonMarker::Config::Parse.keys
         RENDER_KEYS = CommonMarker::Config::Render.keys
         VALID_EXTENSIONS = CommonMarker.extensions.collect(&:to_sym)
         VALID_OPTIONS = (PARSE_KEYS + RENDER_KEYS).uniq
 
+        private_constant :DEFAULT_CONFIG, :PARSE_KEYS, :RENDER_KEYS,
+                         :VALID_EXTENSIONS, :VALID_OPTIONS
+
         def initialize(config)
-          Jekyll::External.require_with_graceful_fail "commonmarker"
           @config = config["commonmark"] || DEFAULT_CONFIG
 
           @parse_options = options & PARSE_KEYS
