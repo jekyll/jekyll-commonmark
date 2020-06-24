@@ -48,7 +48,7 @@ module Jekyll
         end
 
         def prepare(key, proc, valid_keys)
-          collection = config[key].map { |item| proc[item] }
+          collection = config[key].map(&proc)
           validate(collection, valid_keys, key[0..-2])
         end
 
