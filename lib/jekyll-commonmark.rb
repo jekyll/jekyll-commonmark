@@ -1,32 +1,26 @@
 # frozen-string-literal: true
 
+Jekyll::External.require_with_graceful_fail "commonmarker"
 require_relative "jekyll-commonmark/html_renderer"
 
 module Jekyll
   module Converters
     class Markdown
       class CommonMark
+        DEFAULT_CONFIG = { "extensions" => [], "options" => [] }.freeze
+        PARSE_KEYS = CommonMarker::Config::Parse.keys
+        RENDER_KEYS = CommonMarker::Config::Render.keys
+        VALID_EXTENSIONS = CommonMarker.extensions.collect(&:to_sym)
+        VALID_OPTIONS = (PARSE_KEYS + RENDER_KEYS).uniq
+
+        private_constant :DEFAULT_CONFIG, :PARSE_KEYS, :RENDER_KEYS,
+                         :VALID_EXTENSIONS, :VALID_OPTIONS
+
         def initialize(config)
-          Jekyll::External.require_with_graceful_fail "commonmarker"
-          begin
-            options    = config["commonmark"]["options"].collect { |e| e.upcase.to_sym }
-            valid_opts = Set.new(CommonMarker::Config::Parse.keys + CommonMarker::Config::Render.keys).to_a
-            options    = validate(options, valid_opts, "option")
-          rescue NoMethodError
-            options = []
-          end
+          @config = config["commonmark"] || DEFAULT_CONFIG
 
-          begin
-            @extensions      = config["commonmark"]["extensions"].collect(&:to_sym)
-            valid_extensions = CommonMarker.extensions.collect(&:to_sym)
-            @extensions      = validate(@extensions, valid_extensions, "extension")
-          rescue NoMethodError
-            @extensions = []
-          end
-
-          options_set = Set.new(options).freeze
-          @parse_options = (options_set & CommonMarker::Config::Parse.keys).to_a
-          @render_options = (options_set & CommonMarker::Config::Render.keys).to_a
+          @parse_options = options & PARSE_KEYS
+          @render_options = options & RENDER_KEYS
 
           @parse_options = :DEFAULT if @parse_options.empty?
           @render_options = :DEFAULT if @render_options.empty?
@@ -34,14 +28,29 @@ module Jekyll
 
         def convert(content)
           HtmlRenderer.new(
-            :options    => @render_options,
-            :extensions => @extensions
+            :options    => render_options,
+            :extensions => extensions
           ).render(
-            CommonMarker.render_doc(content, @parse_options, @extensions)
+            CommonMarker.render_doc(content, parse_options, extensions)
           )
         end
 
         private
+
+        attr_reader :config, :parse_options, :render_options
+
+        def extensions
+          @extensions ||= prepare("extensions", ->(item) { item.to_sym }, VALID_EXTENSIONS)
+        end
+
+        def options
+          @options ||= prepare("options", ->(item) { item.upcase.to_sym }, VALID_OPTIONS)
+        end
+
+        def prepare(key, proc, valid_keys)
+          collection = config[key].map(&proc)
+          validate(collection, valid_keys, key[0..-2])
+        end
 
         def validate(list, bucket, type)
           list.reject do |item|
