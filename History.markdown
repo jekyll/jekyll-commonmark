@@ -10,6 +10,7 @@
   * Fix failing CI builds (#33)
   * Remove gemspec dependency on Jekyll (#34)
   * Test rendering with invalid configuration (#27)
+  * Refactor to improve readability (#37)
 
 ## 1.3.1 / 2019-03-25
 
