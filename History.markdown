@@ -12,6 +12,10 @@
   * Test rendering with invalid configuration (#27)
   * Refactor to improve readability (#37)
 
+### Documentation
+
+  * Update README to link to commonmarker (#38)
+
 ## 1.3.1 / 2019-03-25
 
 ### Bug Fixes
