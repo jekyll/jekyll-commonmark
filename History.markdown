@@ -2,6 +2,7 @@
 
 ### Minor Enhancements
 
+  * Require at least commonmarker-0.22 (#44)
   * Highlight fenced code-block contents with Rouge (#29)
 
 ### Development Fixes
