@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require "jekyll"
-require_relative "../lib/jekyll-commonmark.rb"
+require_relative "../lib/jekyll-commonmark"
 
 Jekyll.logger.log_level = :info
 

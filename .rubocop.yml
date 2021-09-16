@@ -4,7 +4,31 @@ inherit_gem:
   rubocop-jekyll: .rubocop.yml
 
 AllCops:
-  TargetRubyVersion: 2.4
+  TargetRubyVersion: 2.6
+  SuggestExtensions: false
   Exclude:
     - script/**/*
     - vendor/**/*
+
+Layout/LineEndStringConcatenationIndentation:
+  Enabled: true
+
+Lint/EmptyInPattern:
+  Enabled: false
+
+Naming/InclusiveLanguage:
+  Enabled: false
+
+Performance/MapCompact:
+  Enabled: true
+Performance/RedundantEqualityComparisonBlock:
+  Enabled: true
+Performance/RedundantSplitRegexpArgument:
+  Enabled: true
+
+Style/InPatternThen:
+  Enabled: false
+Style/MultilineInPatternThen:
+  Enabled: false
+Style/QuotedSymbols:
+  Enabled: true
