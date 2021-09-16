@@ -12,6 +12,7 @@
   * Remove gemspec dependency on Jekyll (#34)
   * Test rendering with invalid configuration (#27)
   * Refactor to improve readability (#37)
+  * Set up Continuous Integration via GH Actions (#46)
 
 ### Documentation
 
