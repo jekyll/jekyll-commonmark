@@ -22,8 +22,8 @@ jobs:
         jekyll_version:
           - "~> 4.2"
         include:
-          ruby_version: 2.6
-          jekyll_version: "~> 3.9"
+          - ruby_version: 2.6
+            jekyll_version: "~> 3.9"
     env:
       JEKYLL_VERSION: ${{ matrix.jekyll_version }}
     steps:
