@@ -10,7 +10,7 @@ on:
 
 jobs:
   ci:
-    name: "Unit Tests w/ Jekyll {{ matrix.jekyll_version }} (Ruby ${{ matrix.ruby_version }})"
+    name: "Unit Tests w/ Jekyll ${{ matrix.jekyll_version }} (Ruby ${{ matrix.ruby_version }})"
     runs-on: "ubuntu-latest"
     strategy:
       fail-fast: false
