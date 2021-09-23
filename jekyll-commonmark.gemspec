@@ -8,12 +8,10 @@ Gem::Specification.new do |spec|
   spec.version       = Jekyll::CommonMark::VERSION
   spec.authors       = ["Pat Hawks"]
   spec.email         = "pat@pathawks.com"
-  spec.homepage      = "https://github.com/pathawks/jekyll-commonmark"
+  spec.homepage      = "https://github.com/jekyll/jekyll-commonmark"
   spec.licenses      = ["MIT"]
 
-  spec.files         = `git ls-files -z`.split("\x0")
-  spec.executables   = spec.files.grep(%r!^bin/!) { |f| File.basename(f) }
-  spec.test_files    = spec.files.grep(%r!^(test|spec|features)/!)
+  spec.files         = `git ls-files lib -z`.split("\x0").concat(%w(LICENSE Readme.md))
   spec.require_paths = ["lib"]
 
   spec.required_ruby_version = ">= 2.6.0"
