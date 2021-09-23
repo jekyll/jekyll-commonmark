@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
   spec.homepage      = "https://github.com/jekyll/jekyll-commonmark"
   spec.licenses      = ["MIT"]
 
-  spec.files         = `git ls-files lib -z`.split("\x0").concat(%w(LICENSE Readme.md))
+  spec.files         = `git ls-files lib -z`.split("\x0").concat(%w(LICENSE Readme.md History.markdown))
   spec.require_paths = ["lib"]
 
   spec.required_ruby_version = ">= 2.6.0"
