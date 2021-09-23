@@ -57,3 +57,25 @@ jobs:
           bundler-cache: true
       - name: Run RuboCop
         run:  bash script/fmt
+
+  gem_build_install:
+    name: "Test gem build and install (Ruby ${{ matrix.ruby_version }})"
+    runs-on: "ubuntu-latest"
+    strategy:
+      fail-fast: false
+      matrix:
+        ruby_version:
+          - 2.6
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 3
+      - name: "Set up Ruby ${{ matrix.ruby_version }}"
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby_version }}
+          bundler-cache: true
+      - name: Test gem build
+        run:  bundle exec gem build jekyll-commonmark.gemspec
+      - name: Test gem install
+        run:  bundle exec gem install jekyll-commonmark --local --verbose
