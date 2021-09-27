@@ -13,6 +13,7 @@
   * Test rendering with invalid configuration (#27)
   * Refactor to improve readability (#37)
   * Set up Continuous Integration via GH Actions (#46)
+  * Clean up gemspec (#47)
 
 ### Documentation
 
