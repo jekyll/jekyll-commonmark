@@ -12,6 +12,9 @@ AllCops:
 
 Layout/LineEndStringConcatenationIndentation:
   Enabled: true
+Layout/LineLength:
+  Exclude:
+    - jekyll-commonmark.gemspec
 
 Lint/EmptyInPattern:
   Enabled: false
