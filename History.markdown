@@ -19,6 +19,10 @@
 
   * Update README to link to commonmarker (#38)
 
+### Bug Fixes
+
+  * Refactor away extra abstractions (#53)
+
 ## 1.3.1 / 2019-03-25
 
 ### Bug Fixes
