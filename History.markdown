@@ -14,6 +14,7 @@
   * Refactor to improve readability (#37)
   * Set up Continuous Integration via GH Actions (#46)
   * Clean up gemspec (#47)
+  * Add workflow to release gem via GH Actions (#54)
 
 ### Documentation
 
