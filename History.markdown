@@ -1,9 +1,13 @@
-## HEAD
+## 1.4.0 / 2022-01-30
 
 ### Minor Enhancements
 
   * Require at least commonmarker-0.22 (#44)
   * Highlight fenced code-block contents with Rouge (#29)
+
+### Bug Fixes
+
+  * Refactor away extra abstractions (#53)
 
 ### Development Fixes
 
@@ -19,10 +23,6 @@
 ### Documentation
 
   * Update README to link to commonmarker (#38)
-
-### Bug Fixes
-
-  * Refactor away extra abstractions (#53)
 
 ## 1.3.1 / 2019-03-25
 
