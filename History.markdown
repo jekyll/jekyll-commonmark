@@ -4,6 +4,10 @@
 
   * Bump commonmarker from v0.22 to v0.23.4 (#56)
 
+### Development Fixes
+
+  * remove SMART from readme example (#42)
+
 ## 1.4.0 / 2022-01-30
 
 ### Minor Enhancements
