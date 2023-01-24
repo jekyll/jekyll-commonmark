@@ -16,7 +16,7 @@ Gem::Specification.new do |spec|
 
   spec.required_ruby_version = ">= 2.6.0"
 
-  spec.add_runtime_dependency "commonmarker", "~> 0.23.4"
+  spec.add_runtime_dependency "commonmarker", "~> 0.23.7"
 
   spec.add_development_dependency "bundler"
   spec.add_development_dependency "jekyll", ">= 3.7", "< 5.0"
